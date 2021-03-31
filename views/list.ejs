@@ -1,0 +1,31 @@
+<%- include("../public/layouts/header") %> 
+
+    <div class="box" id="heading">
+        <h1><%= pageTite %> </h1>
+    </div>
+
+    <div class="box">
+        <% items.forEach(item => { %>
+            <div class="item">
+            
+                <form action="/delete" method="POST">
+                    <input type="checkbox" name="checkbox" value="<%= item._id %>" onchange="this.form.submit()">
+                    <p id="items"><%= item.name %> </p>
+                    <input type="hidden" name="listName" value="<%= pageTite %>">
+                </form>
+               
+             </div>
+       <% }); %> 
+        
+        
+        
+        <form action="/" method="POST" class="item">
+            <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
+            <button type="submit" name="list" value="<%= pageTite %>">+</button>
+        </form>
+    </div>
+
+    
+    
+    
+<%- include("../public/layouts/footer") %> 
