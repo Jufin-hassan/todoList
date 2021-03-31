@@ -1,12 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const _ = require('lodash');
+const _ = require('lodash');//JS utility Library
 
 const app = express();
 
 mongoose.connect('mongodb://localhost/todolistDB', {useNewUrlParser: true, useUnifiedTopology: true});
 
+//Some depracation Warnings
 mongoose.set('useFindAndModify', false);
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -128,36 +129,7 @@ app.post("/delete", (req,res) => {
             }
         })
     }
-    // Item.remove({_id : deleteId}, (err,data) => {
-    //     if(err){
-    //         console.log(err);
-    //     }
-    // })
-
    
-
-    // Item.deleteOne({name : deleteId},(err) =>{
-    //     if(err)
-    //         console.log(err);
-    //     else
-    //         console.log("Deleted");
-    // });
-
-    // Item.find({_id : ObjectId(deleteId)},(err,resut) => {
-    //     if (err) {
-    //         console.log(err);
-    //     }else
-    //     console.log(result);
-    // })
-
-//     var myId = JSON.parse(req.body.checkbox);
-//     Item.findOne({'_id': ObjectID(myId)}, function(error,doc) {
-//     if (error) {
-//       console.log(error);
-//     } else {
-//       console.log(doc);
-//     }
-// });
    
 })
 
